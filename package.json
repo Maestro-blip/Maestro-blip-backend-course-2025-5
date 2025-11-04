@@ -4,7 +4,7 @@
   "description": "Lab5",
   "main": "main.js",
   "scripts": {
-    "dev": "nodemon main.js -- -h localhost -p 8000 -c ./dir"
+    "dev": "nodemon main.js -- -h localhost -p 8000 -c testdir"
   },
   "author": "Volodymur Kuchak",
   "license": "ISC",
