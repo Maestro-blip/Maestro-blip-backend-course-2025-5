@@ -1,0 +1,8 @@
+Частина 2
+curl -X PUT --data-binary "testput" http://localhost:8000/301
+curl -o received-image.jpeg http://localhost:8000/301
+curl -X DELETE http://localhost:8000/301
+
+Частина 3
+curl -o cat-500.jpeg http://localhost:8000/500
+curl http://localhost:8000/111

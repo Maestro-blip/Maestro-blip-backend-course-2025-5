@@ -71,11 +71,11 @@ server.on('request', async (request,res) => {
                         res.end(dataG)
                     }catch(err){
                         try{
-                          /*  const catrequest = await superagent.get(caturl);
+                            const catrequest = await superagent.get(caturl);
                             const imagefile = catrequest.body;
                             await fs.promises.writeFile(urlcode,imagefile)
                             res.writeHead(200,{'content-type': 'image/jpeg;' })
-                           res.end(imagefile)*/ 
+                            res.end(imagefile)
 
                         }catch(err){
                             res.writeHead(404,{'content-type': 'text/plain; charset=utf-8' })
