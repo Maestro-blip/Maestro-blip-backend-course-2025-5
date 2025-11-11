@@ -12,6 +12,8 @@ program
 
 program.parse();
 
+
+
 const options = program.opts();
 
 const HOST = options.host;
@@ -56,10 +58,10 @@ const server = http.createServer()
 server.on('request', async (request,res) => {
 
     
-    const urlcode = path.join(path.resolve(DIR), request.url + '.jpeg')
-    const caturl =`https://http.cat${request.url}`
+    const urlcode = path.join(path.resolve(DIR), request.url + '.jpg')
+    const dogurl =`https://http.dog${request.url}.jpg`
     let statuscode = request.url.slice(1);
-    
+
     
     try{
         if(request.url !== "/"){
@@ -71,8 +73,8 @@ server.on('request', async (request,res) => {
                         res.end(dataG)
                     }catch(err){
                         try{
-                            const catrequest = await superagent.get(caturl);
-                            const imagefile = catrequest.body;
+                            const dogrequest = await superagent.get(dogurl);
+                            const imagefile = dogrequest.body;
                             await fs.promises.writeFile(urlcode,imagefile)
                             res.writeHead(200,{'content-type': 'image/jpeg;' })
                             res.end(imagefile)
@@ -99,7 +101,7 @@ server.on('request', async (request,res) => {
                             res.end('Created')
                         }catch(err){
                             res.writeHead(500,{'content-type': 'text/plain; charset=utf-8' })
-                            res.end('Not Found')
+                            res.end('Internal Server Error')
                         }
 
                     })
